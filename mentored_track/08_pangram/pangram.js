@@ -1,11 +1,16 @@
-export const isPangram = sentence =>
-  ALPHABET.every(letter => sentence.toLowerCase().includes(letter));
+export const isPangram = sentence => {
+  sentence = sentence.toLowerCase();
+  return ALPHABET.every(letter => sentence.includes(letter));
+};
+
+const ALPHABET = [...'abcdefghijklmnopqrstuvwxyz'];
 
 // version with Set:
 
 // export const isPangram = sentence => {
-//   const sentenceSet = new Set(sentence.toLowerCase());
-//   return ALPHABET.every(letter => sentenceSet.has(letter));
+//   sentence = sentence.toLowerCase();
+//   const sentenceSet = new Set(sentence.match(REGEX));
+//   return ALPHABET.length === sentenceSet.size;
 // };
 
-const ALPHABET = [...'abcdefghijklmnopqrstuvwxyz'];
+// const REGEX = /[a-z]/g;
