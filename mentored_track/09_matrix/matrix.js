@@ -10,18 +10,12 @@ export class Matrix {
   }
 
   get columns() {
-    const totalLength = [].concat(...this.matrixRows).length;
-    const noOfCols = totalLength / this.matrixRows.length;
-    let columnsArray = [];
+    const noOfCols = this.matrixRows[0].length;
+    const columnsArray = [];
     for (let i = 0; i < noOfCols; i++) {
-      this.matrixRows.map(row => {
-        columnsArray.push(row[i]);
-      });
+      const column = this.matrixRows.map(row => row[i]);
+      columnsArray.push(column);
     }
-    let columns = [];
-    while (columnsArray.length > 0) {
-      columns.push(columnsArray.splice(0, totalLength / noOfCols));
-    }
-    return columns;
+    return columnsArray;
   }
 }
